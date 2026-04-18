@@ -33,7 +33,7 @@ const projects = [
     index: '02',
     title: 'Daily G',
     tagline: 'Personal Growth & Lifestyle System',
-    role: 'Lead Android Engineer',
+    role: 'Android Engineer',
     platforms: 'Android',
     tech: ['Kotlin', 'Jetpack Compose', 'Firebase', 'Clean Architecture', 'MVVM'],
     summary:
@@ -263,7 +263,7 @@ function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: numbe
 ───────────────────────────────────────── */
 const FeaturedProjects = () => {
   return (
-    <section className="relative py-28 lg:py-40 bg-[#050507] text-white overflow-hidden">
+    <section id="projects" className="relative py-28 lg:py-40 bg-[#050507] text-white overflow-hidden">
       {/* Top separator */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
