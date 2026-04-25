@@ -12,12 +12,15 @@ const projects = [
     id: 'lookee',
     index: '01',
     title: 'LOOKEE Tech',
-    tagline: 'Health & Wellness Companion',
+    tagline: 'Real-Time Health Monitoring System',
     role: 'Lead Android Engineer',
-    platforms: 'Android · BLE',
-    tech: ['Kotlin', 'Jetpack Compose', 'Retrofit', 'BLE', 'Hilt'],
-    summary:
-      'A health companion app for monitoring oxygen, pulse, and activity in real time. Integrated Bluetooth Low Energy sensor APIs for seamless data collection and stunning visualization dashboards.',
+    platforms: 'BLE-Driven Health Monitoring System',
+    tech: ['Kotlin', 'Jetpack Compose', 'Retrofit', 'BLE', 'Firebase Auth', 'FCM', 'RESTful APIs'],
+    summary: (
+      <>
+        Led the development of a <span className="text-white font-medium drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]">real-time health monitoring system</span> integrating <span className="text-cyan-300 font-medium">Bluetooth Low Energy (BLE) medical sensors</span> to track oxygen levels, pulse, and activity. Engineered <span className="text-indigo-300 font-medium">reliable device communication pipelines</span> to handle connectivity fluctuations and ensure <span className="text-white font-medium drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]">low-latency data synchronization</span>. Architected a <span className="text-indigo-300 font-medium">scalable Android codebase</span> using modern best practices, enabling <span className="text-cyan-300 font-medium">smooth data visualization</span> and consistent performance in <span className="text-indigo-200 font-medium">production environments</span>.
+      </>
+    ),
     image: '/image.png',
     images: null,
     store: 'https://play.google.com/store/apps/details?id=com.lookee.android&hl=en',
@@ -32,16 +35,26 @@ const projects = [
     id: 'daily-g',
     index: '02',
     title: 'Daily G',
-    tagline: 'Personal Growth & Lifestyle System',
+    tagline: 'Personal Growth & Intelligent Learning Ecosystem',
     role: 'Android Engineer',
-    platforms: 'Android',
-    tech: ['Kotlin', 'Jetpack Compose', 'Firebase', 'Clean Architecture', 'MVVM'],
-    summary:
-      'A complete personal growth system engineered to elevate mindset, productivity, and lifestyle. Built entirely from scratch with cutting-edge Android principles, featuring journaling, goal tracking, and habit formation.',
+    platforms: 'Android · AI Ecosystem · Growth Platform',
+    tech: [
+      'Kotlin',
+      'Jetpack Compose',
+      'Firebase',
+      'MVVM',
+      'Clean Architecture',
+      'LLM Integration'
+    ],
+    summary: (
+      <>
+        Engineered an <span className="text-white font-semibold drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]">intelligent personal growth ecosystem</span> integrating advanced journaling, goal tracking, and <span className="text-pink-300 font-medium tracking-wide">AI-assisted learning modules</span>. Architected with <span className="text-purple-300 font-medium">Clean Architecture & MVVM</span> for uncompromising scalability, leveraging Firebase for seamless <span className="text-white font-medium drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">real-time state synchronization</span>. Delivered an adaptive user experience focused on continuous <span className="text-pink-200 font-medium">productivity optimization</span>.
+      </>
+    ),
     image: null,
     images: ['/dailyleftpart.png', '/dailygrightpart.png'],
     store: 'https://play.google.com/store/apps/details?id=com.gjournal&hl=en',
-    gradient: 'from-violet-600 via-purple-600 to-pink-500',
+    gradient: 'from-violet-600 via-purple-500 to-pink-500',
     glowColor: 'rgba(139,92,246,0.15)',
     accentClass: 'text-purple-400',
     badgeClass: 'bg-purple-500/10 border-purple-500/30 text-purple-300',
@@ -54,10 +67,13 @@ const projects = [
     title: 'NKENNE',
     tagline: 'Learn African Languages',
     role: 'Android Engineer',
-    platforms: 'Android SDK',
+    platforms: 'Android · Language Learning Platform',
     tech: ['Android SDK', 'Firebase', 'REST APIs', 'Chatbot AI', 'Kotlin'],
-    summary:
-      'The first African language learning app with 150 000+ active users, offering 13 languages including Igbo, Yoruba, and Swahili. Gamified learning paths, AI-powered chatbot practice, and offline-first architecture.',
+    summary: (
+      <>
+        The first <span className="text-white font-medium drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">African language learning app</span> with <span className="text-teal-300 font-semibold tracking-wide">150,000+ active users</span>, offering 13 languages including Igbo, Yoruba, and Swahili. Engineered with <span className="text-emerald-300 font-medium">gamified learning paths</span>, <span className="text-white font-medium drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">AI-powered chatbot practice</span>, and robust <span className="text-teal-200 font-medium">offline-first architecture</span>.
+      </>
+    ),
     image: '/nkenne.png',
     images: null,
     store: 'https://play.google.com/store/apps/details?id=com.triaxo.nkenne',
@@ -79,7 +95,7 @@ function ImagePanel({ project }: { project: typeof projects[0] }) {
   /* Dual images (Daily G) */
   if (project.images) {
     return (
-      <div className="w-full h-full flex gap-2" style={{ padding: '4px' }}>
+      <div className="absolute inset-0 flex gap-2 px-2 py-6 sm:py-8 lg:py-10">
         {project.images.map((src, i) => (
           <div
             key={i}
@@ -119,7 +135,7 @@ function ImagePanel({ project }: { project: typeof projects[0] }) {
 
   /* Gradient placeholder (Lookee) */
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="absolute inset-0 flex items-center justify-center">
       <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
       <div className="relative z-10 text-center px-8">
         <div
@@ -163,11 +179,7 @@ function ProjectCard({ project, idx }: { project: typeof projects[0]; idx: numbe
         <div className={`flex flex-col ${isRight ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
 
           {/* ── Image Panel ── */}
-          {/* IMPORTANT: explicit height (not minHeight) so h-full children resolve correctly */}
-          <div
-            className="relative w-full lg:w-[55%] bg-[#080810] overflow-hidden"
-            style={{ height: 'clamp(280px, 48vw, 520px)' }}
-          >
+          <div className="relative w-full lg:w-[55%] bg-[#080810] overflow-hidden h-[340px] sm:h-[440px] lg:h-auto">
             {/* Subtle grid pattern */}
             <div
               className="absolute inset-0 opacity-[0.03]"
@@ -282,29 +294,33 @@ const FeaturedProjects = () => {
           className="mb-20 lg:mb-28 text-center flex flex-col items-center"
         >
           {/* Label pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/25 bg-blue-500/8 backdrop-blur-sm mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-            <span className="text-[11px] font-bold tracking-[0.25em] text-blue-400 uppercase">Portfolio</span>
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-md mb-6 sm:mb-8 shadow-[0_0_20px_rgba(99,102,241,0.15)] group hover:bg-indigo-500/15 transition-all duration-300">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]"></span>
+            </span>
+            <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] text-indigo-300 uppercase">Case Studies</span>
           </div>
 
           {/* Headline */}
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.05] mb-5">
-            Selected{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Works
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15] mb-6 max-w-4xl mx-auto">
+            Scalable Android Systems{' '}
+            <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-sm">
+              in Production
             </span>
           </h2>
 
           {/* Decorative divider */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-white/20 rounded-full" />
-            <div className="w-2 h-2 rounded-full bg-gradient-to-br from-blue-400 to-purple-400" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-white/20 rounded-full" />
+          <div className="flex items-center gap-3 mb-6 sm:mb-8 justify-center">
+            <div className="w-16 sm:w-24 h-[1.5px] bg-gradient-to-r from-transparent to-indigo-500/50" />
+            <div className="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
+            <div className="w-16 sm:w-24 h-[1.5px] bg-gradient-to-l from-transparent to-indigo-500/50" />
           </div>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-slate-500 font-light max-w-xl leading-relaxed">
-            Handcrafted mobile experiences — shipped to production, trusted by real users.
+          <p className="text-base sm:text-lg lg:text-xl text-slate-400/90 font-medium max-w-3xl mx-auto leading-relaxed">
+            Real-world applications engineered with AI capabilities, modern architecture, and production-grade reliability — built to scale and deliver measurable impact.
           </p>
         </motion.div>
 

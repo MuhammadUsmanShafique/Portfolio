@@ -30,15 +30,20 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-sm"
+            className="relative group inline-flex mx-auto lg:mx-0"
           >
-            <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-blue-500"></span>
-            </span>
-            <span className="text-xs sm:text-sm font-medium tracking-wide text-slate-300">
-              Available for new opportunities
-            </span>
+            {/* Animated premium glow behind the badge */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full blur-md opacity-50 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
+            
+            <div className="relative inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#0a0a0a]/80 border border-white/10 backdrop-blur-xl shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+              <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+              </span>
+              <span className="text-xs sm:text-sm font-medium tracking-wide bg-gradient-to-r from-emerald-100 to-teal-50 bg-clip-text text-transparent">
+                Available for new opportunities
+              </span>
+            </div>
           </motion.div>
 
           {/* Main Titles */}
@@ -59,10 +64,14 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="text-lg sm:text-2xl lg:text-3xl font-semibold text-slate-300 flex flex-col sm:flex-row items-center lg:items-start lg:block justify-center gap-1 sm:gap-2 lg:gap-0"
+              className="flex flex-col gap-2 sm:gap-3 items-center lg:items-start"
             >
-              Android Engineer <span className="hidden sm:inline text-slate-600 mx-2">|</span> 
-              <span className="font-medium text-slate-400 text-base sm:text-xl lg:text-2xl">Kotlin • Jetpack Compose</span>
+              <span className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-200 tracking-wide">
+                AI-Powered Android Engineer
+              </span>
+              <span className="font-medium text-blue-400/90 text-base sm:text-lg lg:text-xl">
+                Building Scalable, User-Centric Mobile Systems
+              </span>
             </motion.h2>
           </div>
 
@@ -73,7 +82,7 @@ const HeroSection = () => {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="text-base sm:text-lg lg:text-xl text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0"
           >
-            Building scalable, production-ready mobile apps with clean architecture. Delivering native experiences that users love.
+            Engineering high-performance Android applications powered by AI, modern architecture, and robust design principles — delivering reliable, scalable, and user-centric mobile experiences.
           </motion.p>
 
           {/* Call to Actions */}
