@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-portfolio-domain.vercel.app"),
+  metadataBase: new URL("https://android-engineer-portfolio.vercel.app"),
   title: "Usman | Android Engineer",
   description: "Android Engineer specializing in Kotlin, Jetpack Compose, and Clean Architecture. Building scalable, real-world mobile applications.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Usman | Android Engineer",
     description: "Expert Android Engineer building high-performance, scalable mobile applications.",
-    url: "https://your-portfolio-domain.vercel.app",
+    url: "https://android-engineer-portfolio.vercel.app",
     siteName: "Usman Portfolio",
     locale: "en_US",
     type: "website",
