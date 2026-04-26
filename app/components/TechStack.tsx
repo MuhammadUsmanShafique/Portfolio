@@ -43,8 +43,8 @@ const TechStack = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Industry Expertise</h2>
-          <h3 className="text-4xl lg:text-5xl font-extrabold text-white">Full-Stack Android Stack</h3>
+          <p className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Industry Expertise</p>
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-white">Full-Stack Android Stack</h2>
         </motion.div>
 
         {/* Using flex for better alignment of uneven items */}
@@ -62,7 +62,7 @@ const TechStack = () => {
               <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${skill.color} flex items-center justify-center text-white mb-5 shadow-lg shadow-blue-500/10 group-hover:scale-110 transition-transform duration-300`}>
                 {skill.icon}
               </div>
-              <h4 className="text-xl font-bold text-white mb-1">{skill.name}</h4>
+              <h3 className="text-xl font-bold text-white mb-1">{skill.name}</h3>
               <p className="text-sm text-slate-400 font-medium">{skill.level}</p>
               
               {/* Subtle Progress Bar */}
